@@ -10,6 +10,12 @@ CREATE TABLE IF NOT EXISTS privilege (
 	PRIMARY KEY (client_id)
 );
 
+CREATE TABLE IF NOT EXISTS session_token (
+	client_id INT REFERENCES client(id) ON DELETE CASCADE,
+	token VARCHAR(256),
+	PRIMARY KEY (client_id)
+);
+
 CREATE TABLE IF NOT EXISTS task_category (
 	id SERIAL PRIMARY KEY,
 	title VARCHAR(64),
