@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS task (
 	end_time DATE,
 	location VARCHAR(256),
 	description VARCHAR(256),
+	salary MONEY,
 	CHECK(end_time >= start_time)
 );
 
