@@ -11,7 +11,6 @@ html {
 }
 
 body,
-h1,
 h2,
 h3,
 h4,
@@ -21,11 +20,18 @@ h6 {
     font-weight: 700;
 }
 
+h1{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: lighter;
+}
+
+.btn{
+    border-radius: 0px
+}
+
 .btn-xl {
     color: #fff;
-    background-color: #fed136;
-    border-color: #fed136;
-    border-radius: 3px;
+    background-color: #4C8EF1;
     font-size: 18px;
     padding: 20px 40px;
 }
@@ -44,7 +50,7 @@ h6 {
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url(../img/intro-bg.jpg) no-repeat center center;
+    background: url(../img/school.jpg) no-repeat center center;
     background-size: cover;
 }
 
@@ -56,8 +62,7 @@ h6 {
 
 .intro-message > h1 {
     margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    font-size: 5em;
+    font-size: 4em;
 }
 
 .intro-divider {
@@ -92,6 +97,19 @@ h6 {
     .intro-divider {
         width: 100%;
     }
+}
+
+.navbar-default {
+    background-color: #4C8EF1;
+    border-color: #e7e7e7;
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
 }
 
 .network-name {
@@ -171,7 +189,6 @@ h6 {
 
 footer {
     padding: 50px 0;
-    background-color: #f8f8f8;
 }
 
 p.copyright {
