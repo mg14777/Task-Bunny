@@ -1,6 +1,6 @@
-# TaskAppG16
+# TaskBunny
 
-Tasks Web Application Project for CS2102
+Tasks Web Application Project for CS2102 Group 16
 
 ##Group Members:
 Martin Yim
