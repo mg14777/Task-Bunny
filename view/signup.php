@@ -59,17 +59,17 @@
         </div>
         <!-- /.container -->
     </nav>
+	<?php include('flagHandler.php') ?>
     <div class="form">
-        <form method="post" target="/signup.php" id="sign-up-form" class="main-form">
-            <input type="text" placeholder="First Name"> <br> <br>
-            <input type="text" placeholder="Last Name"> <br> <br>
-            <input type="text" placeholder="Email"> <br> <br>
-            <input type="password" placeholder="Password"> <br> <br>
+        <form method="post" target="" id="sign-up-form" class="main-form">
+            <input type="text" name="firstname" placeholder="First Name"> <br> <br>
+            <input type="text" name="lastname" placeholder="Last Name"> <br> <br>
+            <input type="text" name="email" placeholder="Email"> <br> <br>
+            <input type="password" name="password" placeholder="Password">
+			<div class="sign-up-button-wrapper">
+			<input type="submit" class="sign-up-button" value="Register">
+			</div>
         </form>
-        <div class="sign-up-button-wrapper">
-        <button type="submit" class="sign-up-button">Register</button> <br> <br>
-        </div>
-        </div>
     </div>
     </body>
 </html>

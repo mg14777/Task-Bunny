@@ -8,9 +8,8 @@
 	}
 
 	if (isset($client)) {
-		echo '<p>already connected <br /> <a href=/logout.php>logout ?</a></p>';
-		echo '<p><a href="/dashboard.php">or go to your dashboard ?</a></p>';
+		//Do something with client if connected
 	}
 	else {
-		include_once('/view/index.php');
+		//Do something else if not
 	}

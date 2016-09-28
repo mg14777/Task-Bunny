@@ -66,15 +66,16 @@
         </div>
         <!-- /.container -->
     </nav>
+	<?php include('flagHandler.php') ?>
     <div class="form">
-        <form method="post" target="/login.php" id="sign-up-form" class="main-form">
-            <input type="text" placeholder="Email"> <br> <br>
-            <input type="password" placeholder="Password"> <br> <br>
+        <form method="post" target="" id="sign-up-form" class="main-form">
+            <input type="text" placeholder="Email" name="email"> <br> <br>
+            <input type="password" placeholder="Password" name="password"> <br> <br>
+			<div class="login-button-wrapper">
+			<input type="submit" class="login-button" value="Login"> <br> <br>
+			</div>
+			<div class="sign-up-redirect">Not a registered User ? Sign up <a href="/signup.php"><u>here</u></a>
         </form>
-        <div class="login-button-wrapper">
-        <button type="submit" class="login-button">Login</button> <br> <br>
-        </div>
-        <div class="sign-up-redirect">Not a registered User ? Sign up <a href="/signup.php"><u>here</u></a>
         </div>
     </div>
     </body>
