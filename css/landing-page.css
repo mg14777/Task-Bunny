@@ -33,7 +33,7 @@ h1{
 .btn-xl {
     color: #fff;
     background-color: #4C8EF1;
-    font-size: 18px;
+    font-size: 16px;
     padding: 20px 40px;
 }
 .navbar-brand.topnav {
@@ -41,7 +41,7 @@ h1{
     font-family: 'Roboto Condensed', sans-serif;
 }
 .topnav {
-    font-size: 14px; 
+    font-size: 20px; 
 }
 
 .lead {
@@ -54,8 +54,9 @@ h1{
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url(../img/school.jpg) no-repeat center center;
+    background: url(../img/intro-bg.jpg) no-repeat center center;
     background-size: cover;
+    height:100%;
 }
 
 .intro-message {
@@ -104,8 +105,9 @@ h1{
 }
 
 .navbar-default {
-    background-color: #4C8EF1;
-    border-color: #e7e7e7;
+    background-color: transparent;
+    border-color: transparent;
+    margin-top:20px;
 }
 
 .navbar-default .navbar-brand {
@@ -114,6 +116,7 @@ h1{
 
 .navbar-default .navbar-nav>li>a {
     color: #fff;
+    font-size:14px;
 }
 
 .network-name {
