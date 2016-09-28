@@ -14,12 +14,13 @@
 	else {
 		if (isset($_POST['email']) && isset($_POST['password']) &&
 		   	isset($_POST['firstname']) && isset($_POST['lastname'])) {
-			$data = array(
+			try {
+				$data = array(
 				'email' => $_POST['email'],
 				'password' => Crypto::createHash($_POST['password']),
 				'firstname' => $_POST['firstname'],
 				'lastname' => $_POST['lastname']);
-			try {
+				
 				$client = new Client($data);
 				$clientManager->add($client);
 				$success[] = 'User ' . $data['firstname'] . ' ' . $data['lastname'] . ' correctly added';

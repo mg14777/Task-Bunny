@@ -12,14 +12,14 @@
     <title>Task Bunny</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/css/login.css" rel="stylesheet">
-    <link href="/css/landing-page.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <link href="css/landing-page.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="/">Task Bunny</a>
+                <a class="navbar-brand topnav" href="index.php">Task Bunny</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -74,7 +74,7 @@
 			<div class="login-button-wrapper">
 			<input type="submit" class="login-button" value="Login"> <br> <br>
 			</div>
-			<div class="sign-up-redirect">Not a registered User ? Sign up <a href="/signup.php"><u>here</u></a>
+			<div class="sign-up-redirect">Not a registered User ? Sign up <a href="signup.php"><u>here</u></a>
         </form>
         </div>
     </div>
