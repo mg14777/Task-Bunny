@@ -74,7 +74,7 @@
         <div class="login-button-wrapper">
         <button type="submit" class="login-button">Login</button> <br> <br>
         </div>
-        <div class="sign-up-redirect">Not a registered User ? Sign up <a href="/sign-up.php"><u>here</u></a>
+        <div class="sign-up-redirect">Not a registered User ? Sign up <a href="/signup.php"><u>here</u></a>
         </div>
     </div>
     </body>

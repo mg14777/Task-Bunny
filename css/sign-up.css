@@ -8,6 +8,7 @@ html,body {
     height: 100%;
     background: url(../img/school.jpg) no-repeat center center;
     text-align: center;
+	background-size: cover;
 }
 .main-form {
     width: 100%;
