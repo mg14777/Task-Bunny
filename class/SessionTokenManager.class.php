@@ -31,6 +31,33 @@ class SessionTokenManager {
 		pg_free_result($result);
 	}
 	
+	public function remove($id) {
+		$id = (int) $id;
+		$result = pg_prepare($this->_db, '', 'DELETE FROM session_token WHERE client_id = $1');
+		$result = pg_execute($this->_db, '', array($id)) or die('Query failed: ' . pg_last_error($this->_db));
+		pg_free_result($result);
+	}
+	
+	public function validateCookie() {
+		$cookie = isset($_COOKIE['session']) ? $_COOKIE['session'] : '';
+		if ($cookie) {
+			//first authenthicate the cookie
+			list ($id, $token, $mac) = explode(':', $cookie);
+			if (!Crypto::compareHash(Crypto::mac($id . ':' . $token), $mac)) {
+				throw new Exception("Cookie corrupted");
+			}
+			
+			//second match the cookie against the DB
+			$sessionToken = $this->get($id);
+			if (!Crypto::compareHash($sessionToken->token(), $token)) {
+				throw new Exception("Session tokens do not match");
+			}
+			
+			return $id;
+		}
+		return -1;
+	}
+	
 	public function setDb($db) {
 		$this->_db = $db;
 	}
