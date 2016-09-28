@@ -12,14 +12,14 @@
     <title>Task Bunny</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/login.css" rel="stylesheet">
-    <link href="css/landing-page.css" rel="stylesheet">
+    <link href="/css/sign-up.css" rel="stylesheet">
+    <link href="/css/landing-page.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
@@ -45,36 +45,30 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="index.html">Task Bunny</a>
+                <a class="navbar-brand topnav" href="/">Task Bunny</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <!--<ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#about">About</a>
-                    </li>
-                    <li>
-                        <a href="#services">Services</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Contact</a>
+                        <a href="/login.php">Log in</a>
                     </li>
                 </ul>
-                -->
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
     <div class="form">
-        <form id="sign-up-form" class="main-form">
+        <form method="post" target="/signup.php" id="sign-up-form" class="main-form">
+            <input type="text" placeholder="First Name"> <br> <br>
+            <input type="text" placeholder="Last Name"> <br> <br>
             <input type="text" placeholder="Email"> <br> <br>
             <input type="password" placeholder="Password"> <br> <br>
         </form>
-        <div class="login-button-wrapper">
-        <button type="submit" class="login-button">Login</button> <br> <br>
+        <div class="sign-up-button-wrapper">
+        <button type="submit" class="sign-up-button">Register</button> <br> <br>
         </div>
-        <div class="sign-up-redirect">Not a registered User ? Sign up <a href="sign-up.html"><u>here</u></a>
         </div>
     </div>
     </body>
