@@ -22,7 +22,6 @@ class SessionTokenManager {
 	}
 	
 	public function upsert(SessionToken $token) {
-		echo '<br />' . $token;
 		$result = pg_prepare($this->_db, "", 'UPDATE session_token SET token = $1 WHERE client_id = $2') or die('Query failed: ' . pg_last_error($this->_db));;
 		$result = pg_execute($this->_db, "", array($token->token(), $token->client_id())) or die('Query failed: ' . pg_last_error($this->_db));
 		pg_free_result($result);
