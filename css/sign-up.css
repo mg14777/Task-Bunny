@@ -1,4 +1,3 @@
-
 html,body {
     width: 100%;
     height: 100%;
@@ -13,7 +12,7 @@ html,body {
 .main-form {
     width: 100%;
     height: 50%;
-    padding-top: 15%;
+    padding-top: 10%;
     //padding-left: 40%;
     font-size: 1.5em;
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -21,24 +20,24 @@ html,body {
 }
 input[type="text"] {
     width: 25%;
-    height: 50%;
+    height: 25%;
     text-align: center;
     font-size: 1.2em;
     
 }
 input[type="password"] {
     width: 25%;
-    height: 50%;
+    height: 25%;
     text-align: center;
     font-size: 1.2em;
 }
-.login-button-wrapper {
+.sign-up-button-wrapper {
      width: 100%;
      height: 25%;
-    padding-top: 5%;
+    padding-top: 10%;
      text-align: center;
 }
-.login-button {
+.sign-up-button {
     border: none;
     padding-left: 5%;
     padding-right: 5%;
@@ -52,13 +51,4 @@ button:hover {
     background-color: #4C8EF1;
     color: white;
     transition: background-color 0.5s , color 0.5s;
-}
-.sign-up-redirect {
-    width: 100%;
-    height: 25%;
-    font-size: 2em;
-    color: white;
-}
-a:link , a:visited {
-    color: white;
 }
