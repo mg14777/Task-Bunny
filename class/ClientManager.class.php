@@ -89,23 +89,28 @@ class ClientManager {
 	}
 	
 	public function session() {
-		$cookie = isset($_COOKIE['session']) ? $_COOKIE['session'] : '';
-		if ($cookie) {
-			//first authenthicate the cookie
-			list ($id, $token, $mac) = explode(':', $cookie);
-			if (!Crypto::compareHash(Crypto::mac($id . ':' . $token), $mac)) {
-				throw new Exception("Cookie corrupted");
+		$sessionTokenManager = new SessionTokenManager($this->_db);
+		try {
+			$id = $sessionTokenManager->validateCookie();
+			if ($id >= 0) return $this->get($id);
+			else return null;
+		}
+		catch (Exception $e) {
+			throw $e;
+		}
+	}
+	
+	public function logOut() {
+		$sessionTokenManager = new SessionTokenManager($this->_db);
+		try {
+			$id = $sessionTokenManager->validateCookie();
+			if ($id >= 0) {
+				$sessionTokenManager->remove($id);
+				setcookie('session', '', 0);
 			}
-			
-			//second match the cookie against the DB
-			$sessionTokenManager = new SessionTokenManager($this->_db);
-			$sessionToken = $sessionTokenManager->get($id);
-			if (!Crypto::compareHash($sessionToken->token(), $token)) {
-				throw new Exception("Session tokens do not match");
-			}
-			
-			//if all successful => connect client
-			return $this->get($id);
+		}
+		catch (Exception $e) {
+			throw $e;
 		}
 	}
 }
