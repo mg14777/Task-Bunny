@@ -1,3 +1,4 @@
+
 /*
  * Start Bootstrap - Landing Page (http://startbootstrap.com/)
  * Copyright 2013-2016 Start Bootstrap
@@ -35,7 +36,10 @@ h1{
     font-size: 18px;
     padding: 20px 40px;
 }
-
+.navbar-brand.topnav {
+    font-size: 25px; 
+    font-family: 'Roboto Condensed', sans-serif;
+}
 .topnav {
     font-size: 14px; 
 }
