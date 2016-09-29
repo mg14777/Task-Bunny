@@ -39,6 +39,7 @@
 </head>
 
 <body>
+    <?php include('flagHandler.php') ?>
 
     <div id="wrapper">
 
@@ -53,6 +54,7 @@
 
             <div class="row" id="search_row">
                 <div class="col-md-3">
+                    <a href="addTask.php"><button class="btn btn-default" type="button">Add Task</button></a>
                 </div>
                 <div class="col-md-6">
                 </div>
@@ -84,136 +86,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 4.0</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                        <td class="center"><button type="button" class="btn btn-success">Sign up</button></td>
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 5.0</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">5</td>
-                                        <td class="center">C</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                        <td class="center"><button type="button" class="btn btn-success">Sign up</button></td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 5.5</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">5.5</td>
-                                        <td class="center">A</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                        <td class="center"><button type="button" class="btn btn-success">Sign up</button></td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 6</td>
-                                        <td>Win 98+</td>
-                                        <td class="center">6</td>
-                                        <td class="center">A</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                        <td class="center"><button type="button" class="btn btn-success">Sign up</button></td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 7</td>
-                                        <td>Win XP SP2+</td>
-                                        <td class="center">7</td>
-                                        <td class="center">A</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                        <td class="center"><button type="button" class="btn btn-success">Sign up</button></td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td>AOL browser (AOL desktop)</td>
-                                        <td>Win XP</td>
-                                        <td class="center">6</td>
-                                        <td class="center">A</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                        <td class="center"><button type="button" class="btn btn-success">Sign up</button></td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 1.0</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">1.7</td>
-                                        <td class="center">A</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                        <td class="center"><button type="button" class="btn btn-success">Sign up</button></td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 1.5</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">1.8</td>
-                                        <td class="center">A</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                        <td class="center"><button type="button" class="btn btn-success">Sign up</button></td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 1.5</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">1.8</td>
-                                        <td class="center">A</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                        <td class="center"><button type="button" class="btn btn-success">Sign up</button></td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 1.5</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">1.8</td>
-                                        <td class="center">A</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                        <td class="center"><button type="button" class="btn btn-success">Sign up</button></td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 1.5</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">1.8</td>
-                                        <td class="center">A</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                        <td class="center"><button type="button" class="btn btn-success">Sign up</button></td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 1.5</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">1.8</td>
-                                        <td class="center">A</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                        <td class="center"><button type="button" class="btn btn-success">Sign up</button></td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 1.5</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">1.8</td>
-                                        <td class="center">A</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                        <td class="center"><button type="button" class="btn btn-success">Sign up</button></td>
-                                    </tr>
+                
+                                <?php echo $results; ?>             
 
                                     
                                 </tbody>

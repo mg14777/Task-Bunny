@@ -15,7 +15,7 @@
 		if (isset($_POST['email']) && isset($_POST['password'])) {
 			try {
 				$client = $clientManager->login($_POST['email'], $_POST['password']);
-				header("Location: /dashboard.php");
+				header("Location: ./dashboard.php");
 			}
 			catch (Exception $e) {
 				$error[] = $e->getMessage();
