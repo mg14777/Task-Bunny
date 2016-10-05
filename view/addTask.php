@@ -91,7 +91,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-2" for="sal">Renumeration (if any):</label>
+          <label class="control-label col-sm-2" for="sal">Remuneration (if any):</label>
           <div class="col-sm-4">          
             <input type="text" class="form-control" id="salary" name="salary" value = '0' min='0' >
           </div>

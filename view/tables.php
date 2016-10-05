@@ -46,7 +46,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Available Tasks</h1>
+                    <h1 class="page-header">My Tasks</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -82,7 +82,7 @@
                                         <th>Salary</th>
                                         <th>Start time</th>
                                         <th>End time</th>
-                                        <th>Sign up</th>
+                                        <th>Tools</th>
                                     </tr>
                                 </thead>
                                 <tbody>
