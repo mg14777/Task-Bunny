@@ -12,5 +12,5 @@
 		echo '<p><a href="/dashboard.php">or go to your dashboard ?</a></p>';
 	}
 	else {
-		include_once('/view/index.php');
+		include_once('./view/index.php');
 	}

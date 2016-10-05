@@ -29,7 +29,7 @@
 				$error[] = $e->getMessage();
 			}
 		}
-        include_once('/view/addTask.php');
+        include_once('./view/addTask.php');
 	}
     else {
         header("Location: ./index.php");

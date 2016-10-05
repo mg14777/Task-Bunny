@@ -45,7 +45,7 @@
                 header("Location: ./index.php");
             }
         }
-        include_once('/view/editTask.php');
+        include_once('./view/editTask.php');
 	}
     else {
         header("Location: ./index.php");

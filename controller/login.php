@@ -21,5 +21,5 @@
 				$error[] = $e->getMessage();
 			}
 		}
-		include_once('/view/login.php');
+		include_once('./view/login.php');
 	}

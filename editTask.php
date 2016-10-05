@@ -1,3 +1,3 @@
 <?php
-	include_once('init.php');
-	include_once('controller/editTask.php');
+	include_once('./init.php');
+	include_once('./controller/editTask.php');

@@ -29,5 +29,5 @@
 				$error[] = $e->getMessage();
 			}
 		}
-		include_once('/view/signup.php');
+		include_once('./view/signup.php');
 	}

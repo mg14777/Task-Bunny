@@ -39,11 +39,10 @@
             }
         }
         catch (Exception $e) {
-                echo 'aaaaa';
 				$error[] = $e->getMessage();
         }
         
-        include_once('/view/tables.php');
+        include_once('./view/tables.php');
         
 	}
     else {
