@@ -11,12 +11,20 @@
 
     <title>Task Bunny</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/materialize.js"></script>
+
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Materialize CSS -->
+    <link href="./css/materialize.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- Custom CSS -->
-    <link href="css/login.css" rel="stylesheet">
-    <link href="css/landing-page.css" rel="stylesheet">
+    <link href="./css/login.css" rel="stylesheet">
+    <link href="./css/landing-page.css" rel="stylesheet">
+
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -47,36 +55,61 @@
                 </button>
                 <a class="navbar-brand topnav" href="index.php">Task Bunny</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <!--<ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
-                    <li>
-                        <a href="#services">Services</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Contact</a>
-                    </li>
-                </ul>
-                -->
-            </div>
-            <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
-	<?php include('flagHandler.php') ?>
-    <div class="form">
-        <form method="post" target="" id="sign-up-form" class="main-form">
-            <input type="text" placeholder="Email" name="email"> <br> <br>
-            <input type="password" placeholder="Password" name="password"> <br> <br>
-			<div class="login-button-wrapper">
-			<input type="submit" class="login-button" value="Login"> <br> <br>
-			</div>
-			<div class="sign-up-redirect">Not a registered User ? Sign up <a href="signup.php"><u>here</u></a>
-        </form>
+
+    <div class="container">
+        <div class="input-form-above">
         </div>
+"
+        <div class="row">
+            <div class="col s12 m4 l2"></div>
+            <div class="col s6 m2 l1"></div>
+            <div class="col s6">
+                <div class="row">
+                    <div class="col s12 m6">
+                      <div class="card indigo">
+                        <div class="card-content white-text">
+                          <span class="card-title">Log in</span>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+                <div class="input-form">
+                    <form id="signup-form" method="post" target="" class="col s12 input-form">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input name="email" id="email" type="email" class="validate">
+                            <label for="email" data-error="Please include an '@' in email address" data-success="">Email</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input name="password" id="password" type="password" class="validate">
+                          <label for="password">Password</label>
+                        </div>
+                      </div>
+                    </form>
+                    <div class="right-align">
+                        <div class="teal-text left-align">
+                            Not a registered user? Sign up <a href="signup.php" class="blue-text"><u>here</u></a>
+                        </div>
+                        <button form="signup-form" class="indigo btn waves-effect waves-light" type="submit" name="action">Login
+                            <i class="material-icons right">send</i>
+                        </button> 
+                    </div>
+                    <?php include('flagHandler.php') ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col s6 m2 l1"></div>
+            <div class="col s12 m4 l2"></div>
+        </div>
+    
     </div>
+
+
     </body>
 </html>

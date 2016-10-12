@@ -12,18 +12,18 @@
     <title>Task Bunny</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/materialize.js"></script>
+    <script type="text/javascript" src="../js/materialize.js"></script>
 
     <!-- Bootstrap Core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Materialize CSS -->
-    <link href="./css/materialize.css" rel="stylesheet">
+    <link href="../css/materialize.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- Custom CSS -->
-    <link href="./css/sign-up.css" rel="stylesheet">
-    <link href="./css/landing-page.css" rel="stylesheet">
+    <link href="../css/login.css" rel="stylesheet">
+    <link href="../css/landing-page.css" rel="stylesheet">
 
 
     <!-- Custom Fonts -->
@@ -65,60 +65,52 @@
 "
         <div class="row">
             <div class="col s12 m4 l2"></div>
-            <div class="col s12 m4 l8">
+            <div class="col s6 m2 l1"></div>
+            <div class="col s6">
                 <div class="row">
                     <div class="col s12 m6">
-                        <div class="card deep-purple darken-1">
-                            <div class="card-content white-text">
-                              <span class="card-title">Sign up</span>
-                            </div>
+                      <div class="card indigo">
+                        <div class="card-content white-text">
+                          <span class="card-title">Log in</span>
                         </div>
                     </div>
                 </div>
+              </div>
+
+
 
                 <div class="input-form">
-                    <form id="signup-form" method="post" target="" class="col s12 input-form">
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input name="firstname" placeholder="e.g. John" id="first_name" type="text" class="validate">
-                                <label for="first_name">First Name</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input name="lastname" placeholder="Smith" id="last_name" type="text" class="validate">
-                                <label for="last_name">Last Name</label>
-                            </div>
+                    <form class="col s12 input-form">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input id="email" type="email" class="validate">
+                            <label for="email" data-error="Please include an '@' in email address" data-success="">Email</label>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="email" id="email" type="email" class="validate">
-                                <label for="email" data-error="Please include an '@' in email address" data-success="">Email</label>
-                            </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input id="password" type="password" class="validate">
+                          <label for="password">Password</label>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="password" id="password" type="password" class="validate">
-                                <label for="password">Password</label>
-                            </div>
-                        </div>
+                      </div>
                     </form>
                     <div class="right-align">
                         <div class="teal-text left-align">
-                            Already a registered user? Log in <a href="login.php" class="blue-text"><u>here</u></a>
+                            Not a registered user? Sign up <a href="signup.php" class="blue-text"><u>here</u></a>
                         </div>
-                        <button form="signup-form" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <button class="indigo btn waves-effect waves-light" type="submit" name="action">Login
                             <i class="material-icons right">send</i>
                         </button> 
                     </div>
-                    <?php include('flagHandler.php') ?>
+                    </div>
                 </div>
             </div>
+            <div class="col s6 m2 l1"></div>
+            <div class="col s12 m4 l2"></div>
         </div>
-        
-        <div class="col s12 m4 l2"></div>
+    
     </div>
 
 
-
-
-</body>
+    </body>
 </html>
