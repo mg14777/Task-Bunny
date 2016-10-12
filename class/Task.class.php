@@ -28,12 +28,12 @@ class Task {
 	}
 	
 	public function setStartDate($startDate) {
-        if((!is_null($_endDate) && $startDate > $this->_endDate) || !$this->isValidDate($startDate)) throw new Exception('Invalid Date');
+        if((!is_null($endDate) && $startDate > $this->_endDate) || !$this->isValidDate($startDate)) throw new Exception('Invalid Date');
 		$this->_startDate = $startDate;
 	}
 	
 	public function setEndDate($endDate) {
-        if((!is_null($_startDate) && $this->_startDate > $endDate) || !$this->isValidDate($endDate)) throw new Exception('Invalid Date');
+        if((!is_null($startDate) && $this->_startDate > $endDate) || !$this->isValidDate($endDate)) throw new Exception('Invalid Date');
 		$this->_endDate = $endDate;
 	}
 	
