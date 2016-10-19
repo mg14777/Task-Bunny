@@ -16,7 +16,10 @@
                     else
                         $task = $taskManager->deleteTask($_GET['id'], $client->id());
                     
-                    header("Location: ./dashboard.php");
+                    if(isset($_GET['admin']))
+                        header("Location: ./tablesAdmin.php");
+                    else
+                        header("Location: ./dashboard.php");
                 }
                 catch (Exception $e) {
                     $error[] = $e->getMessage();

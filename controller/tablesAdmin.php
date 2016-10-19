@@ -28,10 +28,10 @@
                 $results .= '<td class = "center">' . $task['startdate'] . '</td>';
                 $results .= '<td class = "center">' . $task['enddate'] . '</td>';
                 $results .= '<td class="center">';
-                $results .= '<a href = "./editTask.php?id=' . $task['id'] . '">
+                $results .= '<a href = "./editTask.php?id=' . $task['id'] . '&admin=true">
                                 <button type="button" class="btn btn-default glyphicon glyphicon-pencil" title ="Edit"/></button>
                             </a>';
-                $results .= '<a href = "./deleteTask.php?id=' . $task['id']. '" onclick="return confirm(\'Are you sure?\')">
+                $results .= '<a href = "./deleteTask.php?id=' . $task['id']. '&admin=true" onclick="return confirm(\'Are you sure?\')">
                                 <button type="button" class="btn btn-default glyphicon glyphicon-remove" title ="Delete"></button>
                             </a>';
                 $results .= '</td>';

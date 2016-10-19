@@ -55,7 +55,7 @@ class TaskManager {
     }
     
     public function deleteTaskAdmin ($id) {
-         $result = pg_prepare($this->_db, "", 'DELETE FROM task WHERE id = $2');
+         $result = pg_prepare($this->_db, "", 'DELETE FROM task WHERE id = $1');
          $result = pg_execute($this->_db, "", array($id)) or die('Query failed: ' . pg_last_error($this->_db));
          pg_free_result($result);          
     }

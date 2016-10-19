@@ -27,7 +27,10 @@
                 else
                     $taskManager->editTask($_GET['id'], $task);
                 
-				header("Location: ./dashboard.php");
+				if(isset($_GET['admin']))
+                    header("Location: ./tablesAdmin.php");
+                else
+                    header("Location: ./dashboard.php");
 			}
 			catch (Exception $e) {
 				$error[] = $e->getMessage();
