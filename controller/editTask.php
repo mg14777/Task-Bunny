@@ -22,9 +22,15 @@
                 $task->setSalary($_POST['salary']);
                 $task->setCategory($_POST['category']);
                 
-                $taskManager->editTask($_GET['id'], $task);
+                if($client->level() == 'admin')
+                    $taskManager->editTaskAdmin($_GET['id'], $task);
+                else
+                    $taskManager->editTask($_GET['id'], $task);
                 
-				header("Location: ./dashboard.php");
+				if(isset($_GET['admin']))
+                    header("Location: ./tablesAdmin.php");
+                else
+                    header("Location: ./dashboard.php");
 			}
 			catch (Exception $e) {
 				$error[] = $e->getMessage();
@@ -33,7 +39,11 @@
         else {
             if (isset($_GET['id'])) {
                 try {
-                    $task = $taskManager->getTaskInfo($_GET['id'], $client->id());
+                    if($client->level() == 'admin')
+                        $task = $taskManager->getTaskInfoAdmin($_GET['id']);
+                    else
+                        $task = $taskManager->getTaskInfo($_GET['id'], $client->id());
+                    
                     if(!count($task))
                         throw new Exception('Illegal Operation. You\'ll get nowhere.');
                 }
