@@ -55,6 +55,16 @@
                 </button>
                 <a class="navbar-brand topnav" href="index.php">Task Bunny</a>
             </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="signup.php">Sign up</a>
+                    </li>
+                    <li>
+                        <a href="login.php">Log in</a>
+                    </li>
+                </ul>
+            </div>
         </div>
         <!-- /.container -->
     </nav>
