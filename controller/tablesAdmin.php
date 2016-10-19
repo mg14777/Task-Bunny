@@ -16,7 +16,7 @@
         
 		$results = '';
         try {
-            $myTasks = $taskManager->getClientTasks($client->id());
+            $myTasks = $taskManager->getClientTasksAdmin();
 
 
             $count = 0;  
@@ -47,7 +47,7 @@
 				$error[] = $e->getMessage();
         }
         
-        include_once('./view/tables.php');
+        include_once('./view/tablesAdmin.php');
         
 	}
     else {

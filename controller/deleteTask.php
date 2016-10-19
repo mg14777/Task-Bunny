@@ -11,7 +11,11 @@
 	if (isset($client)) {
             if (isset($_GET['id'])) {
                 try {
-                    $task = $taskManager->deleteTask($_GET['id'], $client->id());
+                    if($client->level() == 'admin')
+                        $task = $taskManager->deleteTaskAdmin($_GET['id']);
+                    else
+                        $task = $taskManager->deleteTask($_GET['id'], $client->id());
+                    
                     header("Location: ./dashboard.php");
                 }
                 catch (Exception $e) {
