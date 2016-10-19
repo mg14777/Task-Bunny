@@ -77,7 +77,21 @@
         <div class="form-group">
           <label class="control-label col-sm-2" for="cat">Category:</label>
           <div class="col-sm-10">          
-            <input type="text" class="form-control" id="category" name="category" placeholder="???" value =<?php echo $task[0]['category']?>>
+            <input type="hidden" class="category-placeholder" name="category" value =<?php echo $task[0]['category']?>>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" name="category-holder" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> 
+                  Select Category
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu category" aria-labelledby="dropdownMenu1">
+                  <li value="Select Category"><a>Select Category</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li id="Shopping" value="0"><a>Shopping</a></li>
+                  <li id="Home" value="1"><a>Home</a></li>
+                  <li id="Delivery" value="2"><a>Delivery</a></li>
+                  <li id="Cleaning" value="3"><a>Cleaning</a></li>
+                </ul>
+            </div>
           </div>
         </div>
         <div class="form-group">
@@ -141,6 +155,28 @@
       endDateInst.hide();
     }).data('datepicker');
     
+    $(function(){
+      //Listen for a click on any of the dropdown items
+      $(".category li").click(function(){
+          //Get the value
+          var value = $(this).attr("value");
+          var id = $(this).attr("id");
+
+          //Put the retrieved value into the hidden input
+          $("input[name='category']").val(value);
+          $("button[name='category-holder']").text(id + "     ");
+          $("button[name='category-holder']").append("<span class=\"caret\"></span>");
+      });
+    });
+
+    $(document).ready(function() {
+        console.log('hello');
+        //Get the value from the hidden input
+        var value = $('.category-placeholder').attr("value");
+
+        $("button[name='category-holder']").text(value + "     ");
+        $("button[name='category-holder']").append("<span class=\"caret\"></span>");
+    });
 </script>
 </body>
 </html>

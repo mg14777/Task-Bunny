@@ -19,7 +19,7 @@
                 $task->setStartDate($_POST['startDate']);
                 $task->setEndDate($_POST['endDate']);
                 $task->setSalary($_POST['salary']);
-                $task->setCategory(0);
+                $task->setCategory($_POST['category']);
                 
                 $taskManager->addTask($task);
                 

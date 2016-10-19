@@ -31,7 +31,7 @@
                 $results .= '<a href = "./editTask.php?id=' . $task['id'] . '">
                                 <button type="button" class="btn btn-default glyphicon glyphicon-pencil" title ="Edit"/></button>
                             </a>';
-                $results .= '<a href = "./deleteTask.php?id=' . $task['id']. '" onclick="return confirm(\'Are you sure?\')">
+                $results .= '<a href = "./deleteTask.php?id=' . $task['id']. '" onclick="return confirm(\'Are you sure you want to delete?\')">
                                 <button type="button" class="btn btn-default glyphicon glyphicon-remove" title ="Delete"></button>
                             </a>';
                 $results .= '</td>';
