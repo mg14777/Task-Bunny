@@ -74,8 +74,7 @@ class TaskManager {
 		return $tasksArray;
 	}
     
-    public function getAllTasksAdmin($id) {
-		$id = (int) $id;
+    public function getAllTasksAdmin() {
 		$result = pg_prepare($this->_db, '', "SELECT t.id, concat_ws(' ', u.firstname, u.lastname) AS name, c.title AS category, to_char(t.start_time, 'YYYY/MM/DD') AS startdate, to_char(t.end_time, 'YYYY/MM/DD') AS enddate, t.location, t.description, t.salary FROM task t, task_category c, client u WHERE c.id = t.category AND t.creator = u.id ORDER BY t.id");
 		$result = pg_execute($this->_db, '', array()) or die('Query failed: ' . pg_last_error($this->_db));
 		
@@ -119,8 +118,9 @@ class TaskManager {
     public function getAvailableTasks($id) {
 		$id = (int) $id;
 		$result = pg_prepare($this->_db, '', "SELECT t.id, t.creator, concat_ws(' ', u.firstname, u.lastname) AS name, c.title AS category, to_char(t.start_time, 'YYYY/MM/DD') AS startdate, to_char(t.end_time, 'YYYY/MM/DD') AS enddate, t.location, t.description, t.salary 
-        FROM task t, task_category c, client u, tasker t2
-        WHERE c.id = t.category AND t.creator = u.id AND t.creator <> $1 AND t2.task_id <> t.id");
+        FROM task t, task_category c, client u
+        WHERE c.id = t.category AND t.creator = u.id AND t.creator <> $1 AND NOT EXISTS (
+        SELECT * FROM tasker t2 WHERE t2.task_id = t.id)");
 		$result = pg_execute($this->_db, '', array($id)) or die('Query failed: ' . pg_last_error($this->_db));
 		
 		$tasksArray = array();
