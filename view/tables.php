@@ -62,10 +62,12 @@
 
             <div class="row" id="search_row">
                 <?php if (isset($addButton)) { ?>
-                <div class="col-md-3">
-                    <a href="addTask.php"><button class="btn btn-default" type="button">Add Task</button></a>
-                </div>
-                <?php } ?>
+                    <div class="col-md-3">
+                        <a href="addTask.php"><button class="btn btn-default" type="button">Add Task</button></a>
+                    </div>
+                <?php } else {?>
+                    <div class="col-md-3"></div>
+                <?php }?>
                 <div class="col-md-6">
                 </div>
                 <div class="col-md-3">

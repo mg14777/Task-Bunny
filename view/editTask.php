@@ -50,7 +50,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="dashboard.php">Return to Task List</a>
+                        <a href=<?php if(isset($_GET['admin'])) {?>"tablesAdmin.php"<?php } else { ?>"dashboard.php"<?php } ?>>Return to Task List</a>
                     </li>
                 </ul>
             </div>
