@@ -25,6 +25,7 @@
 
     <!-- Custom CSS -->
     <link href="dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/tables.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -53,7 +54,6 @@
                         <a href="./tablesAdmin.php"><button class="btn btn-link">Task Administration</button></a>
                     <?php } ?>
                     <a href="./logout.php"><button class="btn btn-link navbar-right">Log out</button></a>
-
                 </nav>
                 <div class="col-lg-12">
                     <h1 class="page-header"><?php echo $title ?></h1>

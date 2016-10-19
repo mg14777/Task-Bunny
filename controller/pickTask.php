@@ -19,7 +19,7 @@
                                   'startDate' => $taskArray[0]['startdate'],
                                   'endDate' => $taskArray[0]['enddate']);
                     $taskPicker->pick($client, $task);
-                    header("Location: ./dashboard.php");
+                    header("Location: ./helperTask.php");
                 }
                 catch (Exception $e) {
                     $error[] = $e->getMessage();
