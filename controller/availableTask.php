@@ -8,10 +8,10 @@
 		$error[] = $e->getMessage();
 	}
 
-	if (isset($client) && $client->level() == 'admin') {
+	if (isset($client)) {
 		$results = '';
         try {
-            $myTasks = $taskManager->getAllTasksAdmin();
+            $myTasks = $taskManager->getAvailableTasks($client->id());
 
 
             $count = 0;  
@@ -28,11 +28,9 @@
                 $results .= '<td class = "center">' . $task['startdate'] . '</td>';
                 $results .= '<td class = "center">' . $task['enddate'] . '</td>';
                 $results .= '<td class="center">';
-                $results .= '<a href = "./editTask.php?id=' . $task['id'] . '">
-                                <button type="button" class="btn btn-default glyphicon glyphicon-pencil" title ="Edit"/></button>
-                            </a>';
-                $results .= '<a href = "./deleteTask.php?id=' . $task['id']. '" onclick="return confirm(\'Are you sure?\')">
-                                <button type="button" class="btn btn-default glyphicon glyphicon-remove" title ="Delete"></button>
+                $results .= '<a href = "./pickTask.php?id=' . $task['id'] . 
+                                '&creator=' . $task['creator'] . '">
+                                <button type="button" class="btn btn-default">Want this task</button>
                             </a>';
                 $results .= '</td>';
                 $results .= '</tr>';

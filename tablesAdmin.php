@@ -1,3 +1,4 @@
 <?php
 	include_once('./init.php');
-	include_once('./view/tablesAdmin.php');
+    $title = 'Task Administration';
+	include_once('./controller/tablesAdmin.php');

@@ -9,11 +9,6 @@
 	}
 
 	if (isset($client)) {
-        if($client->level() == 'admin')
-            echo '<a href = "./admin.php" style = "margin: 10px"> 
-                    <button type="button" class="btn btn-default" title ="Admin"/>Go to Admin Page</button>
-                  </a>';
-        
 		$results = '';
         try {
             $myTasks = $taskManager->getClientTasks($client->id());

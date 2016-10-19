@@ -23,7 +23,7 @@
                 $task->setCategory(0);
                 
                 if($client->level() == 'admin')
-                    taskManager->editTaskAdmin($_GET['id'], $task);
+                    $taskManager->editTaskAdmin($_GET['id'], $task);
                 else
                     $taskManager->editTask($_GET['id'], $task);
                 

@@ -2,62 +2,29 @@
 html,body {
     width: 100%;
     height: 100%;
-    
+    background: url(../img/intro-bg.jpg) no-repeat center center;
+    background-size: cover;
 }
-.form {
+.container {
     width: 100%;
     height: 100%;
-    background: url(../img/school.jpg) no-repeat center center;
 	background-size: cover;
-    text-align: center;
 }
 .main-form {
 	position: relative;
     top: 15%;
     font-size: 1.5em;
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-    
 }
-input[type="text"] {
-    width: 25%;
-    height: 3em;
-    text-align: center;
-    font-size: 1.2em;
-    
+
+.input-form-above{
+    height:10%;
 }
-input[type="password"] {
-    width: 25%;
-    height: 3em;
-    text-align: center;
-    font-size: 1.2em;
-}
-.login-button-wrapper {
-	width: 100%;
-	height: 25%;
-	padding-top: 2em;
-	text-align: center;
-}
-.login-button {
-    border: none;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    background-color: white;
-    font-size: 2em;
-    font-family: "Roboto Condensed","Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-button:hover {
-    background-color: #4C8EF1;
-    color: white;
-    transition: background-color 0.5s , color 0.5s;
-}
-.sign-up-redirect {
-    width: 100%;
-    height: 25%;
-    font-size: 2em;
-    color: white;
-}
-a:link , a:visited {
-    color: white;
+
+.input-form {
+    background-color:white;
+    padding-top:40px;
+    padding-right:50px;
+    padding-left:50px;
+    padding-bottom: 40px;
 }

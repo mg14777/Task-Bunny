@@ -45,17 +45,27 @@
 
         <div id="page-wrapper">
             <div class="row">
+                <nav class="nav">
+                    <a href="./dashboard.php"><button class="btn btn-link">My tasks</button></a>
+                    <a href="./availableTask.php"><button class="btn btn-link">Available tasks</button></a>
+                    <a href="./helperTask.php"><button class="btn btn-link">Tasks I'm helping</button></a>
+                    <?php if($client->level() == 'admin') { ?>
+                        <a href="./tablesAdmin.php"><button class="btn btn-link">Task Administration</button></a>
+                    <?php } ?>
+                </nav>
                 <div class="col-lg-12">
-                    <h1 class="page-header">My Tasks</h1>
+                    <h1 class="page-header"><?php echo $title ?></h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
 
             <div class="row" id="search_row">
+                <?php if (isset($addButton)) { ?>
                 <div class="col-md-3">
                     <a href="addTask.php"><button class="btn btn-default" type="button">Add Task</button></a>
                 </div>
+                <?php } ?>
                 <div class="col-md-6">
                 </div>
                 <div class="col-md-3">

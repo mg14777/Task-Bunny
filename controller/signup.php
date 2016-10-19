@@ -23,7 +23,7 @@
 				
 				$client = new Client($data);
 				$clientManager->add($client);
-				$success[] = 'User ' . $data['firstname'] . ' ' . $data['lastname'] . ' correctly added';
+				$success[] = 'Account, ' . $data['firstname'] . ' ' . $data['lastname'] . ', successfully created.';
 			}
 			catch (Exception $e) {
 				$error[] = $e->getMessage();
