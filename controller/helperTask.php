@@ -1,11 +1,12 @@
 <?php
 	$clientManager = new ClientManager($db);
-    $taskManager = new TaskManager($db);   
+    $taskManager = new TaskManager($db);  
+    $taskerManager = new TaskerManager($db);
 	try {
 		$client = $clientManager->session();
 	}
 	catch (Exception $e) {
-		$error[] = $e->getMessage();
+		$_SESSION['error'][] = $e->getMessage();
 	}
 
 	if (isset($client)) {
@@ -28,12 +29,14 @@
                 $results .= '<td class = "center">' . $task['startdate'] . '</td>';
                 $results .= '<td class = "center">' . $task['enddate'] . '</td>';
                 $results .= '<td class="center">';
+                $results .= '<div>people on the task : ';
+                $results .= $taskerManager->getCountHelperFor($task['id']) . '</p>';
                 $results .= '</td>';
                 $results .= '</tr>';
             }
         }
         catch (Exception $e) {
-				$error[] = $e->getMessage();
+				$_SESSION['error'][] = $e->getMessage();
         }
         
         include_once('./view/tables.php');
