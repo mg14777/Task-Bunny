@@ -5,7 +5,7 @@
 		$client = $clientManager->session();
 	}
 	catch (Exception $e) {
-		$error[] = $e->getMessage();
+		$_SESSION['error'][] = $e->getMessage();
 	}
 
 	if (isset($client)) {
@@ -33,7 +33,7 @@
                     header("Location: ./dashboard.php");
 			}
 			catch (Exception $e) {
-				$error[] = $e->getMessage();
+				$_SESSION['error'][] = $e->getMessage();
 			}
 		}
         else {
@@ -48,7 +48,7 @@
                         throw new Exception('Illegal Operation. You\'ll get nowhere.');
                 }
                 catch (Exception $e) {
-                    $error[] = $e->getMessage();
+                    $_SESSION['error'][] = $e->getMessage();
                 }
             }
             else {

@@ -7,3 +7,4 @@ spl_autoload_register('loadClass');
 $db = DBFactory::getPgsqlConnexion();
 $error = array();
 $success = array();
+session_start();
