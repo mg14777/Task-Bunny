@@ -16,7 +16,12 @@ Marshall Chua
 
 Sean Zhang
 
+
+
+
+---
+##Screenshots:
 ![alt home] (https://cloud.githubusercontent.com/assets/6991412/19711985/97b5b814-9b6c-11e6-96f1-d3551d524371.png)
 ![alt signup] (https://cloud.githubusercontent.com/assets/6991412/19711932/1296867c-9b6c-11e6-8a75-04a0a44ae24f.png)
-![alt dashboard] (https://cloud.githubusercontent.com/assets/6991412/19711969/76dc324e-9b6c-11e6-89ee-a0956ae84a5a.png)
+![alt dashboard] (https://cloud.githubusercontent.com/assets/6991412/19713365/176c75f6-9b78-11e6-89fe-1b70dcd28052.png)
 ![alt addtask] (https://cloud.githubusercontent.com/assets/6991412/19712051/2688e6ec-9b6d-11e6-996e-4c431b93e552.png)
