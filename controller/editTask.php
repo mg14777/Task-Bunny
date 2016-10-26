@@ -5,13 +5,13 @@
 		$client = $clientManager->session();
 	}
 	catch (Exception $e) {
-		$error[] = $e->getMessage();
+		$_SESSION['error'][] = $e->getMessage();
 	}
 
 	if (isset($client)) {
         
 		if (isset($_POST['description']) && isset($_POST['location']) && isset($_POST['startDate']) && isset($_POST['endDate']) &&
-           isset($_POST['salary'])) {
+           isset($_POST['salary']) && isset($_POST['category'])) {
 			try {
 				$task = new Task();
                 $task->setCreator($client->id());
@@ -33,7 +33,7 @@
                     header("Location: ./dashboard.php");
 			}
 			catch (Exception $e) {
-				$error[] = $e->getMessage();
+				$_SESSION['error'][] = $e->getMessage();
 			}
 		}
         else {
@@ -48,13 +48,14 @@
                         throw new Exception('Illegal Operation. You\'ll get nowhere.');
                 }
                 catch (Exception $e) {
-                    $error[] = $e->getMessage();
+                    $_SESSION['error'][] = $e->getMessage();
                 }
             }
             else {
                 header("Location: ./index.php");
             }
         }
+        $categories = $taskManager->getCategories();
         include_once('./view/editTask.php');
 	}
     else {

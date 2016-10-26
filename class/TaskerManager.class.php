@@ -36,6 +36,14 @@ class TaskerManager {
 		return $array;
 	}
 	
+    public function getCountHelperFor($id) {
+        $id = (int) $id;
+        $result = pg_prepare($this->_db, '', 'SELECT COUNT(*) FROM tasker WHERE task_id = $1');
+		$result = pg_execute($this->_db, '', array($id)) or die('Query failed: ' . pg_last_error($this->_db));
+        
+        return pg_fetch_result($result, 0, 0);
+    }
+    
 	public function setDb($db) {
 		$this->_db = $db;
 	}

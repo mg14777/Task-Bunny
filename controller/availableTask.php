@@ -1,11 +1,12 @@
 <?php
 	$clientManager = new ClientManager($db);
-    $taskManager = new TaskManager($db);   
+    $taskManager = new TaskManager($db);
+    $taskerManager = new TaskerManager($db);
 	try {
 		$client = $clientManager->session();
 	}
 	catch (Exception $e) {
-		$error[] = $e->getMessage();
+		$_SESSION['error'][] = $e->getMessage();
 	}
 
 	if (isset($client)) {
@@ -31,13 +32,14 @@
                 $results .= '<a href = "./pickTask.php?id=' . $task['id'] . 
                                 '&creator=' . $task['creator'] . '">
                                 <button type="button" class="btn btn-default">Want this task</button>
-                            </a>';
+                            </a><br><div>people on the task : ';
+                $results .= $taskerManager->getCountHelperFor($task['id']) . '</p>';
                 $results .= '</td>';
                 $results .= '</tr>';
             }
         }
         catch (Exception $e) {
-				$error[] = $e->getMessage();
+				$_SESSION['error'][] = $e->getMessage();
         }
         
         include_once('./view/tables.php');

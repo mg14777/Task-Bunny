@@ -4,7 +4,7 @@
 		$client = $clientManager->session();
 	}
 	catch (Exception $e) {
-		$error[] = $e->getMessage();
+		$_SESSION['error'][] = $e->getMessage();
 	}
 
 	if (isset($client)) {

@@ -40,8 +40,6 @@
 </head>
 
 <body>
-    <?php include('flagHandler.php') ?>
-
     <div id="wrapper">
 
         <div id="page-wrapper">
@@ -82,6 +80,7 @@
                     </div><!-- /input-group -->
                 </div><!-- /.col-lg-6 -->
             </div>
+            <?php include('flagHandler.php') ?>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">

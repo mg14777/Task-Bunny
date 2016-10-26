@@ -89,7 +89,7 @@ class TaskManager {
     
     public function getTaskInfo($id, $creator) {
         $id = (int) $id;
-        $result = pg_prepare($this->_db, '', "SELECT t.id,  concat_ws(' ', u.firstname, u.lastname) AS name, c.title AS category, to_char(t.start_time, 'YYYY/MM/DD') AS startdate, to_char(t.end_time, 'YYYY/MM/DD') AS enddate, t.location, t.description, t.salary::money::numeric::float8 AS salary FROM task t, task_category c, client u WHERE c.id = t.category AND t.creator = u.id AND t.creator = $1 AND t.id = $2");
+        $result = pg_prepare($this->_db, '', "SELECT t.id,  concat_ws(' ', u.firstname, u.lastname) AS name, c.id as cat_id, c.title AS category, to_char(t.start_time, 'YYYY/MM/DD') AS startdate, to_char(t.end_time, 'YYYY/MM/DD') AS enddate, t.location, t.description, t.salary::money::numeric::float8 AS salary FROM task t, task_category c, client u WHERE c.id = t.category AND t.creator = u.id AND t.creator = $1 AND t.id = $2");
 		$result = pg_execute($this->_db, '', array($creator, $id)) or die('Query failed: ' . pg_last_error($this->_db));
         
         $tasksArray = array();
@@ -103,7 +103,7 @@ class TaskManager {
     
     public function getTaskInfoAdmin($id) {
         $id = (int) $id;
-        $result = pg_prepare($this->_db, '', "SELECT t.id,  concat_ws(' ', u.firstname, u.lastname) AS name, c.title AS category, to_char(t.start_time, 'YYYY/MM/DD') AS startdate, to_char(t.end_time, 'YYYY/MM/DD') AS enddate, t.location, t.description, t.salary::money::numeric::float8 AS salary FROM task t, task_category c, client u WHERE c.id = t.category AND t.creator = u.id AND t.id = $1");
+        $result = pg_prepare($this->_db, '', "SELECT t.id,  concat_ws(' ', u.firstname, u.lastname) AS name, c.id as cat_id, c.title AS category, to_char(t.start_time, 'YYYY/MM/DD') AS startdate, to_char(t.end_time, 'YYYY/MM/DD') AS enddate, t.location, t.description, t.salary::money::numeric::float8 AS salary FROM task t, task_category c, client u WHERE c.id = t.category AND t.creator = u.id AND t.id = $1");
 		$result = pg_execute($this->_db, '', array($id)) or die('Query failed: ' . pg_last_error($this->_db));
         
         $tasksArray = array();
@@ -120,7 +120,7 @@ class TaskManager {
 		$result = pg_prepare($this->_db, '', "SELECT t.id, t.creator, concat_ws(' ', u.firstname, u.lastname) AS name, c.title AS category, to_char(t.start_time, 'YYYY/MM/DD') AS startdate, to_char(t.end_time, 'YYYY/MM/DD') AS enddate, t.location, t.description, t.salary 
         FROM task t, task_category c, client u
         WHERE c.id = t.category AND t.creator = u.id AND t.creator <> $1 AND NOT EXISTS (
-        SELECT * FROM tasker t2 WHERE t2.task_id = t.id)");
+        SELECT * FROM tasker t2 WHERE t2.task_id = t.id AND helper = $1)");
 		$result = pg_execute($this->_db, '', array($id)) or die('Query failed: ' . pg_last_error($this->_db));
 		
 		$tasksArray = array();
@@ -147,6 +147,19 @@ class TaskManager {
 		
 		return $tasksArray;
 	}
+    
+    public function getCategories() {
+        $result = pg_prepare($this->_db, '', "SELECT * FROM task_category ORDER BY id");
+		$result = pg_execute($this->_db, '', array()) or die('Query failed: ' . pg_last_error($this->_db));
+        
+        $tasksArray = array();
+        while($line = pg_fetch_array($result, null, PGSQL_ASSOC)){
+            array_push($tasksArray, $line);
+        }
+		pg_free_result($result);
+		
+		return $tasksArray;
+    }
     
 	
 	public function setDb($db) {

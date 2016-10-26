@@ -38,6 +38,7 @@ class Task {
 	}
 	
 	public function setCategory($category) {
+         if(!is_numeric($category) || $category < 0) throw new Exception('Please select a category.');
 		$this->_category = $category;
 	}
 	

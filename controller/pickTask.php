@@ -7,7 +7,7 @@
 		$client = $clientManager->session();
 	}
 	catch (Exception $e) {
-		$error[] = $e->getMessage();
+		$_SESSION['error'][] = $e->getMessage();
 	}
 
 	if (isset($client)) {
@@ -22,8 +22,8 @@
                     header("Location: ./helperTask.php");
                 }
                 catch (Exception $e) {
-                    $error[] = $e->getMessage();
-                    header("Location: ./dashboard.php");
+                    $_SESSION['error'][] = $e->getMessage();
+                    header("Location: ./availableTask.php");
                 }
             }
             else {
