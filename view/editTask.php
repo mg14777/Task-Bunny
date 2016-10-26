@@ -84,8 +84,9 @@
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu category" aria-labelledby="dropdownMenu1" id ="categoryChoose">
-                   <?php foreach ($categories as $category) ?>
-                    <li id = "<?php echo $category['title']?>" value ="<?php echo $category['id']?>"><a><?php echo $category['title']?></a></li>
+                   <?php foreach ($categories as $category) 
+                    echo "<li id =". $category['title']. " value =". $category['id']. "><a>" . $category['title']. "</a></li>";
+                  ?>
                 </ul>
             </div>
           </div>
