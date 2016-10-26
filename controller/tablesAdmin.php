@@ -1,11 +1,11 @@
 <?php
 	$clientManager = new ClientManager($db);
-    $taskManager = new TaskManager($db);   
-	try {
+    $taskManager = new TaskManager($db);
+    try {
 		$client = $clientManager->session();
 	}
 	catch (Exception $e) {
-		$error[] = $e->getMessage();
+		$_SESSION['error'][] = $e->getMessage();
 	}
 
 	if (isset($client) && $client->level() == 'admin') {
@@ -39,7 +39,7 @@
             }
         }
         catch (Exception $e) {
-				$error[] = $e->getMessage();
+				$_SESSION['error'][] = $e->getMessage();
         }
         
         include_once('./view/tables.php');
