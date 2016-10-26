@@ -50,6 +50,7 @@
                     <a href="./dashboard.php"><button class="btn btn-link">My tasks</button></a>
                     <a href="./availableTask.php"><button class="btn btn-link">Available tasks</button></a>
                     <a href="./helperTask.php"><button class="btn btn-link">Tasks I'm helping</button></a>
+                    <a href="./filter_init.php"><button class="btn btn-link">Filter</button></a>
                     <?php if($client->level() == 'admin') { ?>
                         <a href="./tablesAdmin.php"><button class="btn btn-link">Task Administration</button></a>
                     <?php } ?>
