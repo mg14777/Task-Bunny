@@ -2,3 +2,12 @@
     position: absolute;
     right: 1.5em;
 }
+
+.red-text {
+    color: #F44336 !important;
+    font-weight: bold;
+}
+
+.contact {
+    padding-top: 0.5em;
+}
