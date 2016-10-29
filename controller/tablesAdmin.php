@@ -11,7 +11,8 @@
 	if (isset($client) && $client->level() == 'admin') {
 		$results = '';
         try {
-            $myTasks = $taskManager->getAllTasksAdmin();
+            $search = (isset($_POST['searchField'])) ? $_POST['searchField'] : "";
+            $myTasks = $taskManager->getAllTasksAdmin($search);
 
 
             $count = 0;  

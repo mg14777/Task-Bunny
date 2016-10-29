@@ -72,12 +72,14 @@
                 <div class="col-md-6">
                 </div>
                 <div class="col-md-3">
-                    <div class="input-group">
-                      <input id="search_filter" type="text" class="form-control" placeholder="Search for...">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Go!</button>
-                      </span>
-                    </div><!-- /input-group -->
+                    <form method ="post">
+                        <div class="input-group">
+                          <input id="search_filter" name="searchField" type="text" class="form-control" placeholder="Search for...">
+                          <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default">Go!</button>
+                          </span>
+                        </div><!-- /input-group -->
+                    </form>
                 </div><!-- /.col-lg-6 -->
             </div>
             <?php include('flagHandler.php') ?>

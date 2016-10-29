@@ -12,7 +12,8 @@
 	if (isset($client)) {
 		$results = '';
         try {
-            $myTasks = $taskManager->getHelperTasks($client->id());
+            $search = (isset($_POST['searchField'])) ? $_POST['searchField'] : "";
+            $myTasks = $taskManager->getHelperTasks($client->id(), $search);
 
 
             $count = 0;  
