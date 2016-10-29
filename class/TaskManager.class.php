@@ -69,9 +69,9 @@ class TaskManager {
 	public function getClientTasks($id, $search) {
 		$id = (int) $id;
 		$result = pg_prepare($this->_db, '', "SELECT t.id, concat_ws(' ', u.firstname, u.lastname) AS name, c.title AS category, to_char(t.start_time, 'YYYY/MM/DD') AS startdate, to_char(t.start_time_24h, 'HH24MI') AS starttime, to_char(t.end_time, 'YYYY/MM/DD') AS enddate, to_char(t.end_time_24h, 'HH24MI') AS endtime, t.location, t.description, t.salary FROM task t, task_category c, client u WHERE c.id = t.category AND t.creator = u.id AND t.creator = $1 
-        AND (concat_ws(' ', u.firstname, u.lastname) LIKE $2 OR c.title LIKE $2 OR concat_ws(' ', to_char(t.start_time, 'YYYY/MM/DD'), to_char(t.start_time_24h, 'HH24MI')) LIKE $2 OR concat_ws(' ', to_char(t.end_time, 'YYYY/MM/DD'), to_char(t.end_time_24h, 'HH24MI')) LIKE $2 OR t.location LIKE $2 OR t.description LIKE $2)
+        AND (lower(concat_ws(' ', u.firstname, u.lastname)) LIKE $2 OR lower(c.title) LIKE $2 OR concat_ws(' ', to_char(t.start_time, 'YYYY/MM/DD'), to_char(t.start_time_24h, 'HH24MI')) LIKE $2 OR concat_ws(' ', to_char(t.end_time, 'YYYY/MM/DD'), to_char(t.end_time_24h, 'HH24MI')) LIKE $2 OR lower(t.location) LIKE $2 OR lower(t.description) LIKE $2)
         ORDER BY t.id " );
-		$result = pg_execute($this->_db, '', array($id, '%'.$search.'%')) or die('Query failed: ' . pg_last_error($this->_db));
+		$result = pg_execute($this->_db, '', array($id, '%'.strtolower($search).'%')) or die('Query failed: ' . pg_last_error($this->_db));
 		
 		$tasksArray = array();
         while($line = pg_fetch_array($result, null, PGSQL_ASSOC)){
@@ -84,9 +84,9 @@ class TaskManager {
     
     public function getAllTasksAdmin($search) {
 		$result = pg_prepare($this->_db, '', "SELECT t.id, concat_ws(' ', u.firstname, u.lastname) AS name, c.title AS category, to_char(t.start_time, 'YYYY/MM/DD') AS startdate, to_char(t.start_time_24h, 'HH24MI') AS starttime, to_char(t.end_time, 'YYYY/MM/DD') AS enddate, to_char(t.end_time_24h, 'HH24MI') AS endtime, t.location, t.description, t.salary FROM task t, task_category c, client u WHERE c.id = t.category AND t.creator = u.id
-        AND (concat_ws(' ', u.firstname, u.lastname) LIKE $1 OR c.title LIKE $1 OR concat_ws(' ', to_char(t.start_time, 'YYYY/MM/DD'), to_char(t.start_time_24h, 'HH24MI')) LIKE $1 OR concat_ws(' ', to_char(t.end_time, 'YYYY/MM/DD'), to_char(t.end_time_24h, 'HH24MI')) LIKE $1 OR t.location LIKE $1 OR t.description LIKE $1)
-        ORDER BY t.id");
-		$result = pg_execute($this->_db, '', array('%'.$search.'%')) or die('Query failed: ' . pg_last_error($this->_db));
+        AND (lower(concat_ws(' ', u.firstname, u.lastname)) LIKE $1 OR lower(c.title) LIKE $1 OR concat_ws(' ', to_char(t.start_time, 'YYYY/MM/DD'), to_char(t.start_time_24h, 'HH24MI')) LIKE $1 OR concat_ws(' ', to_char(t.end_time, 'YYYY/MM/DD'), to_char(t.end_time_24h, 'HH24MI')) LIKE $1 OR lower(t.location) LIKE $1 OR lower(t.description) LIKE $1)
+        ORDER BY t.id ");
+		$result = pg_execute($this->_db, '', array('%'.strtolower($search).'%')) or die('Query failed: ' . pg_last_error($this->_db));
 		
 		$tasksArray = array();
         while($line = pg_fetch_array($result, null, PGSQL_ASSOC)){
@@ -131,9 +131,9 @@ class TaskManager {
         FROM task t, task_category c, client u
         WHERE c.id = t.category AND t.creator = u.id AND t.creator <> $1 AND NOT EXISTS (
         SELECT * FROM tasker t2 WHERE t2.task_id = t.id AND helper = $1)
-        AND (concat_ws(' ', u.firstname, u.lastname) LIKE $2 OR c.title LIKE $2 OR concat_ws(' ', to_char(t.start_time, 'YYYY/MM/DD'), to_char(t.start_time_24h, 'HH24MI')) LIKE $2 OR concat_ws(' ', to_char(t.end_time, 'YYYY/MM/DD'), to_char(t.end_time_24h, 'HH24MI')) LIKE $2 OR t.location LIKE $2 OR t.description LIKE $2)
-        ORDER BY t.id");
-		$result = pg_execute($this->_db, '', array($id, '%'.$search.'%')) or die('Query failed: ' . pg_last_error($this->_db));
+        AND (lower(concat_ws(' ', u.firstname, u.lastname)) LIKE $2 OR lower(c.title) LIKE $2 OR concat_ws(' ', to_char(t.start_time, 'YYYY/MM/DD'), to_char(t.start_time_24h, 'HH24MI')) LIKE $2 OR concat_ws(' ', to_char(t.end_time, 'YYYY/MM/DD'), to_char(t.end_time_24h, 'HH24MI')) LIKE $2 OR lower(t.location) LIKE $2 OR lower(t.description) LIKE $2)
+        ORDER BY t.id ");
+		$result = pg_execute($this->_db, '', array($id, '%'.strtolower($search).'%')) or die('Query failed: ' . pg_last_error($this->_db));
 		
 		$tasksArray = array();
         while($line = pg_fetch_array($result, null, PGSQL_ASSOC)){
@@ -149,9 +149,9 @@ class TaskManager {
 		$result = pg_prepare($this->_db, '', "SELECT t.id, t.creator, concat_ws(' ', u.firstname, u.lastname) AS name, c.title AS category, to_char(t.start_time, 'YYYY/MM/DD') AS startdate, to_char(t.start_time_24h, 'HH24MI') AS starttime, to_char(t.end_time, 'YYYY/MM/DD') AS enddate, to_char(t.end_time_24h, 'HH24MI') AS endtime, t.location, t.description, t.salary 
         FROM task t, task_category c, client u, tasker t2
         WHERE c.id = t.category AND t.creator = u.id AND t2.helper = $1 AND t2.task_id = t.id
-        AND (concat_ws(' ', u.firstname, u.lastname) LIKE $2 OR c.title LIKE $2 OR concat_ws(' ', to_char(t.start_time, 'YYYY/MM/DD'), to_char(t.start_time_24h, 'HH24MI')) LIKE $2 OR concat_ws(' ', to_char(t.end_time, 'YYYY/MM/DD'), to_char(t.end_time_24h, 'HH24MI')) LIKE $2 OR t.location LIKE $2 OR t.description LIKE $2)
-        ORDER BY t.id");
-		$result = pg_execute($this->_db, '', array($id, '%'.$search.'%')) or die('Query failed: ' . pg_last_error($this->_db));
+        AND (lower(concat_ws(' ', u.firstname, u.lastname)) LIKE $2 OR lower(c.title) LIKE $2 OR concat_ws(' ', to_char(t.start_time, 'YYYY/MM/DD'), to_char(t.start_time_24h, 'HH24MI')) LIKE $2 OR concat_ws(' ', to_char(t.end_time, 'YYYY/MM/DD'), to_char(t.end_time_24h, 'HH24MI')) LIKE $2 OR lower(t.location) LIKE $2 OR lower(t.description) LIKE $2)
+        ORDER BY t.id ");
+		$result = pg_execute($this->_db, '', array($id, '%'.strtolower($search).'%')) or die('Query failed: ' . pg_last_error($this->_db));
 		
 		$tasksArray = array();
         while($line = pg_fetch_array($result, null, PGSQL_ASSOC)){
