@@ -29,11 +29,13 @@ CREATE TABLE IF NOT EXISTS task (
 	creator INT REFERENCES client(id) ON DELETE CASCADE,
 	category INT REFERENCES task_category(id) ON DELETE CASCADE,
 	start_time DATE,
+	start_time_24h TIME,
 	end_time DATE,
+	end_time_24h TIME,
 	location VARCHAR(256),
 	description VARCHAR(256),
 	salary MONEY,
-	CHECK(end_time >= start_time)
+	CHECK((end_time = start_time AND end_time_24h >= start_time_24h) OR end_time > start_time)
 );
 
 CREATE TABLE IF NOT EXISTS tasker (

@@ -96,9 +96,19 @@
           <div class="col-sm-4">          
             <input type="text" class="form-control" id="startDate" name="startDate" placeholder="Choose task start date">
           </div>
+          <label class="control-label col-sm-2" for="start">Start Time:</label>
+          <div class="col-sm-4">          
+            <input type="text" class="form-control" id="startTime" name="startTime" placeholder="HHMM format">
+          </div>
+        </div>
+        <div class="form-group">
           <label class="control-label col-sm-2" for="end">End Date:</label>
           <div class="col-sm-4">          
             <input type="text" class="form-control" id="endDate" name="endDate" placeholder="Choose task end date">
+          </div>
+          <label class="control-label col-sm-2" for="start">End Time:</label>
+          <div class="col-sm-4">          
+            <input type="text" class="form-control" id="endTime" name="endTime" placeholder="HHMM format">
           </div>
         </div>
         <div class="form-group">
