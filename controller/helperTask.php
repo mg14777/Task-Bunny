@@ -12,7 +12,8 @@
 	if (isset($client)) {
 		$results = '';
         try {
-            $myTasks = $taskManager->getHelperTasks($client->id());
+            $search = (isset($_POST['searchField'])) ? $_POST['searchField'] : "";
+            $myTasks = $taskManager->getHelperTasks($client->id(), $search);
 
 
             $count = 0;  
@@ -26,8 +27,8 @@
                 $results .= '<td>' . $task['location'] . '</td>';
                 $results .= '<td>' . $task['description'] . '</td>';
                 $results .= '<td class = "center">' . $task['salary'] . '</td>';
-                $results .= '<td class = "center">' . $task['startdate'] . '</td>';
-                $results .= '<td class = "center">' . $task['enddate'] . '</td>';
+                $results .= '<td class = "center">' . $task['startdate'] . " " . $task['starttime'] . '</td>';
+                $results .= '<td class = "center">' . $task['enddate'] . " " . $task['endtime'] . '</td>';
                 $results .= '<td class="center">';
                 $results .= '<div>people on the task : ';
                 $results .= $taskerManager->getCountHelperFor($task['id']) . '</p>';

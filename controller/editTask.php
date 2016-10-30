@@ -10,8 +10,7 @@
 
 	if (isset($client)) {
         
-		if (isset($_POST['description']) && isset($_POST['location']) && isset($_POST['startDate']) && isset($_POST['endDate']) &&
-           isset($_POST['salary']) && isset($_POST['category'])) {
+		if (isset($_POST['description']) && isset($_POST['location']) && isset($_POST['startDate']) && isset($_POST['endDate']) &&        isset($_POST['startTime']) && isset($_POST['endTime']) && isset($_POST['salary']) && isset($_POST['category'])) {
 			try {
 				$task = new Task();
                 $task->setCreator($client->id());
@@ -19,6 +18,8 @@
                 $task->setLocation($_POST['location']);
                 $task->setStartDate($_POST['startDate']);
                 $task->setEndDate($_POST['endDate']);
+                $task->setStartTime($_POST['startTime']);
+                $task->setEndTime($_POST['endTime']);
                 $task->setSalary($_POST['salary']);
                 $task->setCategory($_POST['category']);
                 
@@ -34,6 +35,24 @@
 			}
 			catch (Exception $e) {
 				$_SESSION['error'][] = $e->getMessage();
+                
+                if (isset($_GET['id'])) {
+                    try {
+                        if($client->level() == 'admin')
+                            $task = $taskManager->getTaskInfoAdmin($_GET['id']);
+                        else
+                            $task = $taskManager->getTaskInfo($_GET['id'], $client->id());
+
+                        if(!count($task))
+                            throw new Exception('Illegal Operation. You\'ll get nowhere.');
+                    }
+                    catch (Exception $e) {
+                        $_SESSION['error'][] = $e->getMessage();
+                    }
+                }
+                else {
+                    header("Location: ./index.php");
+                }
 			}
 		}
         else {
