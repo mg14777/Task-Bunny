@@ -207,7 +207,47 @@
             echo $results; 
         ?>  
         <form action="./userFilter.php" method="GET">
-            <h3>Tasks with max or min salary (NOT EXISTS)</h3>
+            <h3>Tasks with Max/Min salary per group (Having)</h3>
+            <select name='group_criteria_having'>
+                        <option value="" disabled selected>Group By</option>
+                        <option value="task_category">Task Category</option>
+            </select>
+            <select name='max_or_min_having'>
+                        <option value="max">Max</option>
+                        <option value="min">Min</option>
+            </select>
+            <input type="submit" value="Find"/>
+        </form>
+        <?php
+            $results = '';
+            $result = NULL;
+            try {
+                //include './table_generator.php';
+                if(isset($_GET['group_criteria_having'])) {
+
+                    if($_GET['group_criteria_having'] == 'task_category') {
+                        if($_GET['max_or_min_having'] == 'max')
+                            $result = pg_query("SELECT c.title AS category, t.salary AS Max_Salary  FROM task t, task_category c, client u WHERE t.category = c.id AND t.creator = u.id GROUP BY c.title, t.salary HAVING t.salary >= ALL(SELECT t1.salary FROM task t1, client u1, task_category c1 WHERE t1.creator = u1.id AND c1.id = t1.category AND c1.title = c.title )");
+                        if($_GET['max_or_min_having'] == 'min')
+                            $result = pg_query("SELECT c.title AS category, t.salary AS Min_Salary  FROM task t, task_category c, client u WHERE t.category = c.id AND t.creator = u.id GROUP BY c.title, t.salary HAVING t.salary <= ALL(SELECT t1.salary FROM task t1, client u1, task_category c1 WHERE t1.creator = u1.id AND c1.id = t1.category AND c1.title = c.title )");
+                    }
+                }
+                else {
+                    //$results .= '<h3>Select grouping criteria !!</h3>';
+                }
+
+                if($result != NULL) {
+                    $results = table_generator($result);
+                }                                            
+                
+            }
+            catch (Exception $e) {
+                    $error[] = $e->getMessage();
+            }                                                                            
+            echo $results; 
+        ?>
+        <form action="./userFilter.php" method="GET">
+            <h3>Tasks with max or min salary (ALL)</h3>
             <select name='max_or_min'>
                         <option value="max">Max</option>
                         <option value="min">Min</option>

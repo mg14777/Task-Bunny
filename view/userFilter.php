@@ -30,6 +30,7 @@
         <form action="./userFilter.php" method="GET">
             <h3>Number of tasks per group (Group By)</h3>
             <select name='group_criteria'>
+                        <option value="" disabled selected>Group By</option>
                         <option value="task_category">Task Category</option>
             </select>
             <input type="submit" value="Count"/>
@@ -40,12 +41,19 @@
             <input type="submit" value="Find"/>
         </form>
         <form action="./userFilter.php" method="GET">
-            <h3>Tasks with certain location pattern (Like)</h3>
-            <input type="text" id="location" name="location" placeholder="Location">
+            <h3>Tasks with Max/Min salary per group (Having)</h3>
+            <select name='group_criteria_having'>
+                        <option value="" disabled selected>Group By</option>
+                        <option value="task_category">Task Category</option>
+            </select>
+            <select name='max_or_min_having'>
+                        <option value="max">Max</option>
+                        <option value="min">Min</option>
+            </select>
             <input type="submit" value="Find"/>
         </form>
         <form action="./userFilter.php" method="GET">
-            <h3>Tasks with max or min salary (NOT EXISTS)</h3>
+            <h3>Tasks with max or min salary (ALL)</h3>
             <select name='max_or_min'>
                         <option value="max">Max</option>
                         <option value="min">Min</option>
